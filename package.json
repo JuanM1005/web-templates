@@ -1,0 +1,5 @@
+{
+  "name": "web-templates-library",
+  "private": true,
+  "workspaces": ["templates/*"]
+}
