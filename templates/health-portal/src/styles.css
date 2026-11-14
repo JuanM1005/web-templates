@@ -1,0 +1,5 @@
+@import "tailwindcss";
+:root { font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #173b3f; background: #f5f8f3; }
+html { scroll-behavior: smooth; } body { margin: 0; }
+.health-pattern { background-image: radial-gradient(#2f766f1b 1.5px, transparent 1.5px); background-size: 24px 24px; }
+:focus-visible { outline: 3px solid #ee765d; outline-offset: 3px; }
