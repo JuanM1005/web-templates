@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+  --event-ink: #100d24;
+  --event-lime: #f5ff61;
+  --event-coral: #ff694d;
+  --event-mint: #5ee5c0;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--event-ink); }
+.event-grid { background-image: linear-gradient(rgb(255 255 255 / 8%) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 8%) 1px, transparent 1px); background-size: 40px 40px; }
+.text-outline { color: transparent; -webkit-text-stroke: 1px white; }
+.orb { filter: blur(1px); box-shadow: inset -18px -22px 35px rgb(16 13 36 / 28%); }
+:focus-visible { outline: 3px solid var(--event-lime); outline-offset: 3px; }
+@media (prefers-reduced-motion: no-preference) { .orb { animation: float 7s ease-in-out infinite; } @keyframes float { 50% { transform: translateY(-16px) rotate(8deg); } } }

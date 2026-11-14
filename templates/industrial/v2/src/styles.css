@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+:root {
+  --industrial-navy: #11202b;
+  --industrial-steel: #53636b;
+  --industrial-orange: #e65d20;
+  --industrial-paper: #f3f1eb;
+  --font-industrial: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-industrial);
+  background: var(--industrial-paper);
+}
+
+:focus-visible {
+  outline: 3px solid var(--industrial-orange);
+  outline-offset: 3px;
+}
+
+.grid-pattern {
+  background-image: linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}

@@ -4,6 +4,21 @@ Presentación personal demostrativa con resumen de perfil, proyectos filtrables 
 
 ## Instalación y ejecución autónoma
 
+Desde la raíz `web-templates`:
+
+```bash
+bun run dev:portfolio
+```
+
+Para comprobar y compilar:
+
+```bash
+bun run check:portfolio
+bun run build:portfolio
+```
+
+También puede ejecutarse desde su carpeta:
+
 ```bash
 cd templates/portfolio
 bun install

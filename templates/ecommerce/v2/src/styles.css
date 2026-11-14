@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root {
+  --shop-ink: #20231f;
+  --shop-paper: #f6f2e9;
+  --shop-red: #d45036;
+  --font-shop: Georgia, "Times New Roman", serif;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--shop-paper); }
+.font-editorial { font-family: var(--font-shop); }
+.product-stage { background-image: radial-gradient(circle at 50% 42%, var(--stage-accent) 0 34%, transparent 35%); }
+.shape-object { background: var(--object-color); box-shadow: 0 24px 40px rgb(32 35 31 / 16%); }
+:focus-visible { outline: 3px solid var(--shop-red); outline-offset: 3px; }

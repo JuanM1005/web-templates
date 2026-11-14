@@ -1,5 +1,23 @@
 {
   "name": "web-templates-library",
   "private": true,
-  "workspaces": ["templates/*"]
+  "workspaces": ["templates/*", "templates/*/v2"],
+  "scripts": {
+    "dev:industrial-v2": "bun run --cwd ./templates/industrial/v2 dev",
+    "build:industrial-v2": "bun run --cwd ./templates/industrial/v2 build",
+    "check:industrial-v2": "bun run --cwd ./templates/industrial/v2 typecheck",
+    "dev:ecommerce-v2": "bun run --cwd ./templates/ecommerce/v2 dev",
+    "build:ecommerce-v2": "bun run --cwd ./templates/ecommerce/v2 build",
+    "check:ecommerce-v2": "bun run --cwd ./templates/ecommerce/v2 typecheck",
+    "dev:events-v2": "bun run --cwd ./templates/events/v2 dev",
+    "build:events-v2": "bun run --cwd ./templates/events/v2 build",
+    "check:events-v2": "bun run --cwd ./templates/events/v2 typecheck",
+    "dev:portfolio": "bun run --cwd ./templates/portfolio dev",
+    "build:portfolio": "bun run --cwd ./templates/portfolio build",
+    "check:portfolio": "bun run --cwd ./templates/portfolio typecheck",
+    "check:v2": "bun run check:industrial-v2 && bun run check:ecommerce-v2 && bun run check:events-v2",
+    "build:v2": "bun run build:industrial-v2 && bun run build:ecommerce-v2 && bun run build:events-v2",
+    "check": "bun run check:v2 && bun run check:portfolio",
+    "build": "bun run build:v2 && bun run build:portfolio"
+  }
 }
