@@ -1,6 +1,6 @@
 # Web Templates Library
 
-Repositorio de servicio social de Juan y Eriberto para preparar una biblioteca de cuatro plantillas web independientes. El proyecto está en **Etapa 1: convenciones y base técnica**. Todavía no contiene interfaces, código de plantillas ni dependencias de React.
+Repositorio de servicio social de Juan y Eriberto para construir una biblioteca de cuatro plantillas web independientes. Las implementaciones principales pueden convivir con propuestas alternativas dentro de subcarpetas versionadas como `v2`, evitando sobrescribir el trabajo de cada integrante.
 
 ## Objetivo
 
@@ -22,8 +22,11 @@ Las versiones concretas se verificarán en la documentación oficial y se regist
 web-templates/
 ├── templates/
 │   ├── industrial/
+│   │   └── v2/
 │   ├── ecommerce/
+│   │   └── v2/
 │   ├── events/
+│   │   └── v2/
 │   └── portfolio/
 ├── docs/
 │   ├── architecture.md
@@ -36,10 +39,42 @@ web-templates/
 └── README.md
 ```
 
-Las carpetas de `templates/` solo contienen `.gitkeep` para que Git pueda conservarlas. `bun.lock` se generará con Bun cuando exista una instalación justificada de dependencias.
+Las carpetas principales quedan disponibles para las versiones base revisadas por el equipo. Las propuestas alternativas industrial, e-commerce y eventos viven en sus respectivas carpetas `v2`, con código, instrucciones e identidad visual independientes.
+
+## Vista previa rápida
+
+Desde la raíz `web-templates`, ejecuta:
+
+```bash
+bun run dev:industrial-v2
+```
+
+Después abre la dirección que aparece en la terminal, normalmente [http://localhost:3000](http://localhost:3000). El enlace solo funciona mientras el comando siga ejecutándose. Para detener el servidor usa `Ctrl + C`.
+
+También puedes comprobar y compilar la plantilla desde la raíz:
+
+```bash
+bun run check:industrial-v2
+bun run build:industrial-v2
+```
+
+Los comandos equivalentes para las demás plantillas son:
+
+```bash
+bun run dev:ecommerce-v2
+bun run dev:events-v2
+bun run dev:portfolio
+```
+
+Para revisar o compilar las cuatro de una vez:
+
+```bash
+bun run check:v2
+bun run build:v2
+```
 
 ## Organización del trabajo
 
 La propuesta inicial asigna industrial y eventos a Juan, con revisión de Eriberto; e-commerce y portafolio a Eriberto, con revisión de Juan. El trabajo usará tareas pequeñas, ramas cortas y solicitudes de revisión cruzada. `main` es la única rama permanente prevista. Esta distribución es una propuesta del plan, no una aprobación formal.
 
-Consulta [arquitectura](./docs/architecture.md), [convenciones](./docs/conventions.md) y [hoja de ruta](./docs/roadmap.md) antes de iniciar la plantilla piloto.
+Consulta [arquitectura](./docs/architecture.md), [convenciones](./docs/conventions.md) y [hoja de ruta](./docs/roadmap.md) para conocer el avance y los siguientes pasos.

@@ -5,17 +5,16 @@ La secuencia y los entregables proceden de [PLANIFICACION.md](../PLANIFICACION.m
 | Etapa | Entregable previsto | Estado |
 | --- | --- | --- |
 | 0. Confirmación del alcance | Plan revisado y aprobado | Pendiente de aprobación registrada |
-| 1. Convenciones y base técnica | Monorepositorio instalable y documentación inicial | En preparación; estructura y documentos iniciales creados |
-| 2. Plantilla piloto | Industrial completa y revisada | Pendiente |
-| 3. Otras plantillas | E-commerce, eventos y portafolio independientes y revisados | Pendiente |
+| 1. Convenciones y base técnica | Monorepositorio instalable y documentación inicial | Base creada; Bun workspace y dependencias registradas |
+| 2. Plantilla piloto | Industrial completa y revisada | Implementación base en PR y propuesta `v2` separada para comparación |
+| 3. Otras plantillas | E-commerce, eventos y portafolio independientes y revisados | E-commerce y eventos tienen versión base en PR y propuestas `v2`; portafolio está integrado en `develop` |
 | 4. Integración y entrega | MVP revisado y demostrable | Pendiente |
 
 ## Próximas actividades
 
-1. Revisar el borrador de planificación con el responsable y registrar sus decisiones, sin dar por aprobadas las preguntas abiertas.
-2. Acordar criterios específicos de aceptación para la plantilla industrial.
-3. Al iniciar el piloto, verificar versiones estables y compatibilidad del stack en fuentes oficiales; registrar esas decisiones.
-4. Crear entonces el workspace industrial, instalar solo sus dependencias justificadas y documentar comandos reales.
-5. Desarrollar y revisar el piloto antes de comenzar las otras tres plantillas.
+1. Revisar los PR de las versiones base sin mezclar todavía las carpetas `v2`.
+2. Comparar base y `v2` por plantilla y seleccionar qué elementos integrar.
+3. Ejecutar revisión cruzada de accesibilidad, contenido e interacciones.
+4. Revisar el borrador de planificación con el responsable y preparar la demostración del MVP.
 
-Quedan pendientes los archivos individuales de cada plantilla, su código, sus verificaciones y el `bun.lock` correspondiente a una instalación futura. La ausencia de esos entregables es intencional en la Etapa 1.
+Las propuestas `v2` tienen código, documentación y configuración independiente. Las versiones base permanecen en sus ramas y solicitudes de revisión, evitando conflictos durante la comparación.
