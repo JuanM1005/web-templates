@@ -65,6 +65,21 @@
         "typescript": "^5.7.0",
       },
     },
+    "templates/pizzeria": {
+      "name": "@web-templates/pizzeria",
+      "version": "0.1.0",
+      "dependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+      },
+      "devDependencies": {
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "bun-plugin-tailwind": "^0.1.0",
+        "tailwindcss": "^4.0.0",
+        "typescript": "^5.7.0",
+      },
+    },
     "templates/portfolio": {
       "name": "@web-templates/portfolio",
       "version": "0.1.0",
@@ -117,6 +132,8 @@
     "@web-templates/events-v2": ["@web-templates/events-v2@workspace:templates/events/v2"],
 
     "@web-templates/industrial-v2": ["@web-templates/industrial-v2@workspace:templates/industrial/v2"],
+
+    "@web-templates/pizzeria": ["@web-templates/pizzeria@workspace:templates/pizzeria"],
 
     "@web-templates/portfolio": ["@web-templates/portfolio@workspace:templates/portfolio"],
 
