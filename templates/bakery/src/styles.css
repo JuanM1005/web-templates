@@ -1,0 +1,2 @@
+@import "tailwindcss";
+:root{font-family:Georgia,"Times New Roman",serif;color:#35251d;background:#f6ead7}body{margin:0}.sans{font-family:Inter,ui-sans-serif,system-ui,sans-serif}.crumbs{background-image:radial-gradient(#7b4d3422 1.2px,transparent 1.2px);background-size:18px 18px}:focus-visible{outline:3px solid #d85d3b;outline-offset:3px}
