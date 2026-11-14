@@ -1,0 +1,5 @@
+@import "tailwindcss";
+:root { font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #151515; background: #f4f1e8; }
+body { margin: 0; } button { font: inherit; }
+.grain { background-image: radial-gradient(#1112 0.7px, transparent 0.7px); background-size: 7px 7px; }
+:focus-visible { outline: 3px solid #ef4b34; outline-offset: 3px; }
