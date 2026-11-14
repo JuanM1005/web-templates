@@ -20,6 +20,21 @@
         "typescript": "^5.7.0",
       },
     },
+    "templates/education": {
+      "name": "@web-templates/education",
+      "version": "0.1.0",
+      "dependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+      },
+      "devDependencies": {
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "bun-plugin-tailwind": "^0.1.0",
+        "tailwindcss": "^4.0.0",
+        "typescript": "^5.7.0",
+      },
+    },
     "templates/events/v2": {
       "name": "@web-templates/events-v2",
       "version": "0.1.0",
@@ -96,6 +111,8 @@
     "@types/react-dom": ["@types/react-dom@19.3.0", "", { "peerDependencies": { "@types/react": "^19.3.0" } }, "sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q=="],
 
     "@web-templates/ecommerce-v2": ["@web-templates/ecommerce-v2@workspace:templates/ecommerce/v2"],
+
+    "@web-templates/education": ["@web-templates/education@workspace:templates/education"],
 
     "@web-templates/events-v2": ["@web-templates/events-v2@workspace:templates/events/v2"],
 

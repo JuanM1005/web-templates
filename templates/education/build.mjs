@@ -1,0 +1,4 @@
+import tailwind from "bun-plugin-tailwind";
+const result = await Bun.build({ entrypoints: ["./index.html"], outdir: "./dist", minify: true, plugins: [tailwind] });
+if (!result.success) { for (const message of result.logs) console.error(message); process.exit(1); }
+console.log(`Plantilla educativa compilada: ${result.outputs.length} archivos.`);
