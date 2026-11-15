@@ -1,0 +1,2 @@
+@import "tailwindcss";
+:root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#17202a;background:#eef3f1}body{margin:0}.blueprint{background-image:linear-gradient(#ffffff12 1px,transparent 1px),linear-gradient(90deg,#ffffff12 1px,transparent 1px);background-size:32px 32px}:focus-visible{outline:3px solid #ffb547;outline-offset:3px}
