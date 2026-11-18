@@ -64,7 +64,10 @@ Los comandos equivalentes para las demás plantillas son:
 bun run dev:ecommerce-v2
 bun run dev:events-v2
 bun run dev:portfolio
+bun run dev:saas-landing
 ```
+
+[Alinea](./templates/saas-landing/README.md) es una landing demostrativa para un SaaS de gestión de proyectos. Sus comandos de verificación y compilación son `bun run check:saas-landing` y `bun run build:saas-landing`.
 
 Para revisar o compilar las cuatro de una vez:
 
