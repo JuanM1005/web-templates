@@ -1,0 +1,141 @@
+@import "tailwindcss" source(none);
+@source "./";
+
+@theme {
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --color-cobalt: #002fa7;
+  --color-ink: #141417;
+  --color-muted: #525260;
+  --color-line: #d6d6df;
+  --color-cloud: #f7f7f8;
+}
+
+:root {
+  --frame: 75rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --section-space: clamp(3.75rem, 8vw, 7.5rem);
+  --rule: 1px solid var(--color-line);
+}
+
+body { color: var(--color-ink); background: white; }
+:focus-visible { outline: 2px solid var(--color-cobalt); outline-offset: 4px; }
+.frame { width: min(100% - 2 * var(--gutter), var(--frame)); margin-inline: auto; }
+.section-space { padding-block: var(--section-space); }
+.section-title { font-size: clamp(2.5rem, 5.5vw, 5rem); font-weight: 700; line-height: .99; letter-spacing: -.067em; text-wrap: balance; }
+.section-label { margin-bottom: 1rem; font-weight: 700; color: var(--color-cobalt); }
+.section-copy { color: var(--color-muted); margin-top: 1.25rem; }
+.section-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 6vw, 6rem); }
+
+.skip-link { position: fixed; z-index: 5; top: .5rem; left: .5rem; padding: .75rem 1rem; background: white; color: var(--color-cobalt); transform: translateY(-150%); }
+.skip-link:focus { transform: none; }
+.site-header { border-bottom: var(--rule); }
+.header-inner { min-height: 4.75rem; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; }
+.brand { display: inline-flex; align-items: center; gap: .6rem; font-size: 1.65rem; line-height: 1; font-weight: 700; letter-spacing: -.07em; width: fit-content; }
+.brand-mark { display: block; width: 1.15rem; height: 1.15rem; background: var(--color-cobalt); clip-path: polygon(0 0,100% 0,100% 100%,66% 100%,66% 35%,0 35%,0 0,0 66%,51% 66%,51% 100%,0 100%,0 66%); }
+.main-nav { display: flex; align-items: center; gap: clamp(1rem, 2.75vw, 2.5rem); font-size: .925rem; font-weight: 700; }
+.main-nav > a:not(.button), .footer > a:last-child { padding-block: .75rem; }
+.main-nav > a:not(.button):hover, .footer > a:last-child:hover { color: var(--color-cobalt); text-decoration: underline; text-underline-offset: .2em; }
+.menu-toggle { display: none; }
+.button, .menu-toggle { min-height: 2.85rem; padding: .65rem 1rem; border: 1px solid var(--color-cobalt); font-weight: 700; font-size: .925rem; }
+.button { display: inline-flex; align-items: center; justify-content: center; width: fit-content; }
+.button-primary { background: var(--color-cobalt); color: white; }
+.button-primary:hover { background: var(--color-ink); border-color: var(--color-ink); }
+.button-outline, .menu-toggle { color: var(--color-cobalt); }
+.button-outline:hover, .menu-toggle:hover { background: var(--color-cloud); }
+
+.hero { padding-block: clamp(2rem, 5vw, 4.25rem) clamp(2.75rem, 6vw, 5rem); }
+.hero-label { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .35rem 1rem; padding-block: .75rem; border-top: var(--rule); border-bottom: var(--rule); font-size: .9rem; font-weight: 700; }
+.hero-label span { color: var(--color-muted); font-weight: 400; }
+.hero-layout { display: grid; grid-template-columns: minmax(0, 2.25fr) minmax(0, 1fr); align-items: end; gap: clamp(1.5rem, 5vw, 5rem); padding-top: clamp(1.75rem, 4vw, 3.25rem); }
+.hero h1 { font-size: clamp(3.45rem, 10.7vw, 10rem); font-weight: 700; line-height: .86; letter-spacing: -.085em; }
+.hero h1 em { font-style: normal; color: var(--color-cobalt); }
+.hero-intro { border-top: var(--rule); padding-top: 1rem; }
+.hero-intro p { color: var(--color-muted); font-size: clamp(1.12rem, 1.8vw, 1.55rem); line-height: 1.35; letter-spacing: -.025em; margin-bottom: 1.45rem; max-width: 25ch; }
+
+.preview { background: var(--color-cobalt); color: white; padding-block: clamp(1.35rem, 4vw, 3.25rem) clamp(2rem, 5.5vw, 4.5rem); }
+.preview-caption { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .4rem 1rem; padding-bottom: .85rem; margin-bottom: 1.25rem; border-bottom: 1px solid #ffffff75; }
+.preview-caption h2 { font-weight: 700; font-size: clamp(1.2rem, 2.4vw, 1.75rem); letter-spacing: -.035em; }
+.preview-caption span { font-size: .875rem; }
+.board { display: grid; grid-template-columns: minmax(10rem, 1fr) minmax(0, 4fr); background: white; color: var(--color-ink); }
+.board-sidebar { border-right: var(--rule); padding: 1.5rem 1.15rem; background: var(--color-cloud); }
+.sidebar-label { font-size: .8rem; color: var(--color-muted); }
+.sidebar-project { font-weight: 700; margin: .2rem 0 2rem; }
+.sidebar-selection { font-weight: 700; border-left: 3px solid var(--color-cobalt); padding: .35rem .6rem; color: var(--color-cobalt); }
+.board-main { padding: clamp(1rem, 3vw, 2.25rem); }
+.board-title { margin-bottom: 1.1rem; display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; }
+.board-title h3 { font-size: clamp(1.35rem, 3.5vw, 2rem); font-weight: 700; letter-spacing: -.04em; }
+.board-title p { font-size: .85rem; white-space: nowrap; color: var(--color-muted); }
+.board-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; }
+.board-column { background: var(--color-cloud); padding: .6rem; border-top: 2px solid var(--color-line); }
+.board-column:nth-child(2) { border-color: var(--color-cobalt); }
+.board-column:last-child { border-color: var(--color-ink); }
+.board-column h4 { display: flex; justify-content: space-between; font-size: .85rem; font-weight: 700; padding: .25rem .2rem .6rem; }
+.board-column h4 span { color: var(--color-muted); }
+.board-column ul { display: grid; gap: .4rem; }
+.board-column li { background: white; border: var(--rule); min-height: 3.25rem; padding: .55rem; font-size: .85rem; overflow-wrap: break-word; }
+
+.detail-list, .faq-items { border-top: var(--rule); }
+.detail-list li { padding-block: 1.2rem; border-bottom: var(--rule); }
+.detail-list h3, .benefit-list h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.025em; line-height: 1.2; }
+.detail-list p, .benefit-list p { color: var(--color-muted); margin-top: .5rem; }
+.benefits { background: var(--color-cloud); border-block: var(--rule); }
+.benefit-list { margin-top: clamp(2rem, 5vw, 4rem); display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.benefit-list li { border-top: 2px solid var(--color-cobalt); padding: 1rem 1.25rem 0 0; }
+
+.pricing-header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1.5rem; }
+.billing { display: flex; width: fit-content; border: var(--rule); }
+.billing label { display: flex; align-items: center; gap: .45rem; min-height: 2.75rem; padding: .45rem .75rem; color: var(--color-cobalt); cursor: pointer; }
+.billing label:has(:checked) { background: var(--color-cloud); font-weight: 700; }
+.billing input { accent-color: var(--color-cobalt); }
+.plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--rule); border-left: var(--rule); }
+.plan { display: flex; flex-direction: column; padding: clamp(1.15rem, 3vw, 2.125rem); border-bottom: var(--rule); border-right: var(--rule); }
+.plan[data-featured="true"] { background: var(--color-cloud); box-shadow: inset 0 4px var(--color-cobalt); }
+.plan h3 { font-size: clamp(1.35rem, 2.5vw, 1.9rem); line-height: 1.15; font-weight: 700; letter-spacing: -.045em; margin-bottom: .55rem; }
+.plan > p { color: var(--color-muted); }
+.plan > p:first-of-type { min-height: 3.25em; }
+.plan .price { margin-top: 1.15rem; color: var(--color-ink); }
+.price strong { font-size: clamp(2.4rem, 5vw, 4.25rem); line-height: 1; letter-spacing: -.07em; font-variant-numeric: tabular-nums; }
+.billing-note { font-size: .875rem; margin-top: .25rem; }
+.plan-features { padding: 1rem 0 1.2rem 1rem; margin-top: 1.25rem; border-top: var(--rule); list-style: disc; }
+.plan-features li + li { margin-top: .4rem; }
+.plan > a { margin-top: auto; }
+
+.faq { border-top: var(--rule); }
+.faq-items details { border-bottom: var(--rule); }
+.faq-items summary { cursor: pointer; padding: 1rem .25rem; font-weight: 700; }
+.faq-items summary::marker { color: var(--color-cobalt); }
+.faq-items summary:hover { color: var(--color-cobalt); }
+.faq-items p { padding: 0 .25rem 1.15rem; color: var(--color-muted); max-width: 56ch; }
+
+.contact { background: var(--color-cloud); border-block: var(--rule); }
+.contact-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 8vw, 8rem); }
+.contact-layout h2 { color: var(--color-cobalt); }
+.contact-layout h2 + p { color: var(--color-muted); margin-top: 1.2rem; max-width: 36ch; }
+.contact-form { display: grid; gap: .85rem; }
+.contact-form label { display: grid; gap: .3rem; font-weight: 700; }
+.contact-form :is(input, select, textarea) { width: 100%; background: white; border: 1px solid var(--color-muted); padding: .65rem .75rem; font-weight: 400; }
+.contact-form textarea { resize: vertical; }
+.form-actions { display: grid; justify-items: start; gap: .75rem; }
+.form-actions p { min-height: 1.5em; color: var(--color-cobalt); font-weight: 700; }
+.footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding-block: 1.75rem; font-size: .875rem; }
+.footer p { color: var(--color-muted); }
+
+@media (max-width: 50rem) {
+  .header-inner { flex-wrap: wrap; gap: 0; padding-block: .75rem; min-height: 0; }
+  .menu-toggle { display: inline-block; }
+  .main-nav { display: none; width: 100%; }
+  .main-nav[data-open="true"] { display: grid; gap: .25rem; padding-block: .75rem .25rem; }
+  .main-nav > a:not(.button) { border-top: var(--rule); }
+  .hero-layout { grid-template-columns: 1fr; }
+  .hero h1 { font-size: clamp(3.45rem, 13vw, 6.5rem); }
+  .hero-intro p { max-width: 40ch; }
+  .board { grid-template-columns: 1fr; }
+  .board-sidebar { display: none; }
+  .section-split, .contact-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 40rem) {
+  .board-columns, .benefit-list, .plans { grid-template-columns: 1fr; }
+  .board-column ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .plan > p:first-of-type { min-height: auto; }
+}

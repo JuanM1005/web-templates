@@ -21,9 +21,21 @@
     "dev:professional-association": "bun run --cwd ./templates/professional-association dev",
     "build:professional-association": "bun run --cwd ./templates/professional-association build",
     "check:professional-association": "bun run --cwd ./templates/professional-association typecheck",
+    "dev:saas-landing": "bun run --cwd ./templates/saas-landing dev",
+    "build:saas-landing": "bun run --cwd ./templates/saas-landing build",
+    "check:saas-landing": "bun run --cwd ./templates/saas-landing typecheck",
+    "dev:digital-magazine": "bun run --cwd ./templates/digital-magazine dev",
+    "build:digital-magazine": "bun run --cwd ./templates/digital-magazine build",
+    "check:digital-magazine": "bun run --cwd ./templates/digital-magazine typecheck",
+    "dev:real-estate": "bun run --cwd ./templates/real-estate dev",
+    "build:real-estate": "bun run --cwd ./templates/real-estate build",
+    "check:real-estate": "bun run --cwd ./templates/real-estate typecheck",
+    "dev:operations-dashboard": "bun run --cwd ./templates/operations-dashboard dev",
+    "build:operations-dashboard": "bun run --cwd ./templates/operations-dashboard build",
+    "check:operations-dashboard": "bun run --cwd ./templates/operations-dashboard typecheck",
     "check:v2": "bun run check:industrial-v2 && bun run check:ecommerce-v2 && bun run check:events-v2",
     "build:v2": "bun run build:industrial-v2 && bun run build:ecommerce-v2 && bun run build:events-v2",
-    "check": "bun run check:v2 && bun run check:portfolio",
-    "build": "bun run build:v2 && bun run build:portfolio"
+    "check": "bun run check:v2 && bun run check:portfolio && bun run check:saas-landing && bun run check:digital-magazine && bun run check:real-estate && bun run check:operations-dashboard",
+    "build": "bun run build:v2 && bun run build:portfolio && bun run build:saas-landing && bun run build:digital-magazine && bun run build:real-estate && bun run build:operations-dashboard"
   }
 }
