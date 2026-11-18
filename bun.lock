@@ -110,6 +110,21 @@
         "typescript": "^5.7.0",
       },
     },
+    "templates/industrial-supplier": {
+      "name": "@web-templates/industrial-supplier",
+      "version": "0.1.0",
+      "dependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+      },
+      "devDependencies": {
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "bun-plugin-tailwind": "^0.1.0",
+        "tailwindcss": "^4.0.0",
+        "typescript": "^5.7.0",
+      },
+    },
     "templates/industrial/v2": {
       "name": "@web-templates/industrial-v2",
       "version": "0.1.0",
@@ -460,6 +475,8 @@
     "@web-templates/gallery": ["@web-templates/gallery@workspace:templates/gallery"],
 
     "@web-templates/health-portal": ["@web-templates/health-portal@workspace:templates/health-portal"],
+
+    "@web-templates/industrial-supplier": ["@web-templates/industrial-supplier@workspace:templates/industrial-supplier"],
 
     "@web-templates/industrial-v2": ["@web-templates/industrial-v2@workspace:templates/industrial/v2"],
 
