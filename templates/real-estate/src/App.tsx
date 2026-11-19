@@ -30,6 +30,8 @@ function readFavorites(): string[] {
 }
 
 export function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
   const [hash, setHash] = useState(() => window.location.hash);
   const [filters, setFilters] = useState(defaultFilters);
   const [favorites, setFavorites] = useState(readFavorites);
@@ -48,6 +50,7 @@ export function App() {
   useEffect(() => {
     function readHash() {
       setHash(window.location.hash);
+      setMenuOpen(false);
       setNotice({ text: "", limit: false });
     }
     window.addEventListener("hashchange", readHash);
@@ -108,10 +111,22 @@ export function App() {
         event.preventDefault();
         main.current?.focus();
       }}>Saltar al contenido</a>
-      <header className="site-header">
+      <header className="site-header" onKeyDown={(event) => {
+        if (event.key === "Escape" && menuOpen && menuButton.current?.getClientRects().length) {
+          setMenuOpen(false);
+          menuButton.current.focus();
+        }
+      }}>
         <div className="wrap header-layout">
           <a className="brand" href="#/"><span className="brand-mark" aria-hidden="true" />Umbral</a>
-          <nav aria-label="Navegación principal">
+          <button className="nav-toggle button button-outline" ref={menuButton} type="button"
+            aria-expanded={menuOpen} aria-controls="main-nav" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? "Cerrar" : "Menú"}
+          </button>
+          <nav id="main-nav" aria-label="Navegación principal" data-open={menuOpen} onClick={() => {
+            setMenuOpen(false);
+            if (menuOpen) main.current?.focus({ preventScroll: true });
+          }}>
             {links.map(({ path: target, label: text }) => (
               <a href={`#/${target}`} key={target} aria-current={path === target ? "page" : undefined}>
                 {text}

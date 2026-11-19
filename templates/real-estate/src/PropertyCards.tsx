@@ -40,7 +40,9 @@ export function PropertyCards({
       {items.map((property) => (
         <li key={property.id}>
           <article className="property-card">
-            <img src={property.photos[0].src} alt={property.photos[0].alt} loading="lazy" width={1024} height={768} />
+            <a className="card-photo" href={propertyLink(property.id)} tabIndex={-1} aria-label={property.name}>
+              <img src={property.photos[0].src} alt={property.photos[0].alt} loading="lazy" width={1024} height={768} />
+            </a>
             <div className="property-card-copy">
               <p className="property-type">{property.type}</p>
               <Heading className="card-title"><a href={propertyLink(property.id)}>{property.name}</a></Heading>

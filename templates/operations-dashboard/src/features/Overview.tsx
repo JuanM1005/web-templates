@@ -4,17 +4,13 @@ import type { Operation, Period } from "../types";
 function Indicators({ rows }: { rows: Operation[] }) {
   const summary = summarize(rows);
   const rate = summary.total ? Math.round(100 * summary.completed / summary.total) : 0;
-  const cards = [
-    ["Operaciones", formatNumber(summary.total), "Registros del periodo"],
-    ["Unidades completadas", formatNumber(summary.units), "En operaciones finalizadas"],
-    ["Finalización", `${rate}%`, `${summary.completed} completadas de ${summary.total}`],
-    ["Incidencias", formatNumber(summary.incidents), "Requieren seguimiento"],
-  ];
   return (
     <dl className="indicators" aria-label="Indicadores generales">
-      {cards.map(([label, value, note]) => (
-        <div key={label}><dt>{label}</dt><dd><strong>{value}</strong><small>{note}</small></dd></div>
-      ))}
+      <div><dt>Operaciones</dt><dd><strong>{formatNumber(summary.total)}</strong><small>Registros del periodo</small></dd></div>
+      <div><dt>Unidades completadas</dt><dd><strong>{formatNumber(summary.units)}</strong><small>En operaciones finalizadas</small></dd></div>
+      <div><dt>Finalización</dt><dd><strong>{rate}%</strong><small>{summary.completed} completadas de {summary.total}</small>
+        <progress max={100} value={rate} aria-label="Tasa de finalización" /></dd></div>
+      <div data-alert={summary.incidents > 0}><dt>Incidencias</dt><dd><strong>{formatNumber(summary.incidents)}</strong><small>Requieren seguimiento</small></dd></div>
     </dl>
   );
 }
@@ -30,7 +26,7 @@ export function Overview({ rows, period }: { rows: Operation[]; period: Period }
           <figcaption><h2>Volumen operativo</h2><p>{period === 7 ? "Operaciones por día" : `Operaciones por bloque de ${period / 6} días`}</p></figcaption>
           <ol className="columns" aria-label="Volumen por intervalo">
             {trend.map(({ start, end, count }) => (
-              <li key={start}>
+              <li key={start} title={`${formatDay(start)} – ${formatDay(end)} · ${count} operaciones`}>
                 <div className="bar-track" aria-hidden="true"><div style={{ height: `${count / peak * 100}%` }}><b>{count}</b></div></div>
                 <span aria-hidden="true">{formatDay(start)}</span>
                 <span className="sr-only">{formatDay(start)} a {formatDay(end)}, {count} operaciones</span>

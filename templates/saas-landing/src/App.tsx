@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Brand, Header } from "./Header";
 import { ProductPreview } from "./ProductPreview";
 import { Pricing } from "./Pricing";
@@ -8,26 +8,28 @@ import { benefits, features, questions } from "./data";
 export function App() {
   const [selectedPlan, setSelectedPlan] = useState("");
 
+  useEffect(() => {
+    const target = document.getElementById(window.location.hash.slice(1));
+    target?.scrollIntoView();
+  }, []);
+
   return (
     <>
       <a className="skip-link" href="#contenido">Saltar al contenido</a>
       <Header />
       <main id="contenido" tabIndex={-1}>
         <section id="inicio" className="frame hero" aria-labelledby="hero-title">
-          <p className="hero-label">Gestión de proyectos <span>Producto ficticio</span></p>
-          <div className="hero-layout">
+          <div className="hero-intro">
+            <p className="hero-label">Gestión de proyectos <span>Producto ficticio</span></p>
             <h1 id="hero-title">El trabajo,<br /> en <em>orden.</em></h1>
-            <div className="hero-intro">
-              <p>Planea entregas, asigna tareas y sigue el avance de tu equipo desde un solo espacio.</p>
-              <div className="flex flex-wrap gap-3">
-                <a href="#producto" className="button button-primary">Ver el tablero</a>
-                <a href="#planes" className="button button-outline">Ver planes</a>
-              </div>
+            <p className="hero-copy">Planea entregas, asigna tareas y sigue el avance de tu equipo desde un solo espacio.</p>
+            <div className="flex flex-wrap gap-3">
+              <a href="#producto" className="button button-primary">Ver el tablero</a>
+              <a href="#planes" className="button button-outline">Ver planes</a>
             </div>
           </div>
+          <ProductPreview />
         </section>
-
-        <ProductPreview />
 
         <section className="frame section-space section-split" id="funciones" aria-labelledby="features-title">
           <div>

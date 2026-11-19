@@ -17,7 +17,7 @@ export function SaveButton({ article, favorites, toggleFavorite }: { article: Ar
       onClick={() => toggleFavorite(article.slug)}
     >
       <span aria-hidden="true" className="bookmark" />
-      Guardar
+      {saved ? "Guardado" : "Guardar"}
     </button>
   );
 }

@@ -54,11 +54,11 @@ export function App() {
         <div className="wrap">
           {onHome ? (
             <>
-              <div className="edition-strip">
-                <span>Revista digital independiente</span>
-                <span>Edición 01 · Noviembre 2026</span>
-              </div>
               <div className="masthead-title">
+                <div className="edition-strip">
+                  <span>Revista digital independiente</span>
+                  <span>Edición 01 · Noviembre 2026</span>
+                </div>
                 <h1>Interlínea</h1>
                 <p>Tecnología, diseño y cultura.</p>
               </div>

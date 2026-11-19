@@ -35,6 +35,7 @@ export function Comparison({ items, remove }: { items: Property[]; remove: (prop
             {items.length === 1 ? "Agrega otra propiedad para contrastar las características. " : ""}
             <a className="back-link" href="#/catalogo">Volver al catálogo</a>
           </p>
+          {items.length > 1 && <p className="comparison-scroll-hint">Desplaza la tabla para ver las demás propiedades.</p>}
           <div className="table-scroll" role="region" aria-label="Tabla de comparación de propiedades" tabIndex={0}>
             <table className="comparison-table">
               <caption className="sr-only">Precio, ubicación y características de las propiedades seleccionadas</caption>
@@ -43,7 +44,10 @@ export function Comparison({ items, remove }: { items: Property[]; remove: (prop
                   <th scope="col">Característica</th>
                   {items.map((property) => (
                     <th scope="col" key={property.id}>
-                      <a href={propertyLink(property.id)}>{property.name}</a>
+                      <a href={propertyLink(property.id)}>
+                        <img src={property.photos[0].src} alt="" width={144} height={80} />
+                        {property.name}
+                      </a>
                       <button className="text-action" type="button" aria-label={`Quitar ${property.name} de la comparación`}
                         onClick={() => {
                           remove(property);
