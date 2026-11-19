@@ -1,37 +1,33 @@
 import { columns } from "./data";
 
 export function ProductPreview() {
+  const total = columns.reduce((sum, column) => sum + column.tasks.length, 0);
+  const finished = columns.find((column) => column.title === "Listo")?.tasks.length ?? 0;
+
   return (
-    <section id="producto" className="preview" aria-labelledby="preview-title">
-      <figure className="frame">
-        <figcaption className="preview-caption">
-          <h2 id="preview-title">Un proyecto, una vista</h2>
-          <span>Tablero de ejemplo</span>
-        </figcaption>
-        <div className="board">
-          <div className="board-sidebar">
-            <p className="sidebar-label">Proyecto</p>
-            <p className="sidebar-project">Lanzamiento web</p>
-            <p className="sidebar-selection">Tablero</p>
+    <figure id="producto" className="preview" tabIndex={-1} aria-labelledby="preview-title">
+      <figcaption className="preview-caption">
+        <h2 id="preview-title">Un proyecto, una vista</h2>
+        <span>Tablero de ejemplo</span>
+      </figcaption>
+      <div className="board">
+        <div className="board-path"><span className="brand-mark" aria-hidden="true" /> Proyecto <span aria-hidden="true">/</span> Tablero</div>
+        <div className="board-main">
+          <div className="board-title"><h3>Lanzamiento web</h3><p>{total} tareas</p></div>
+          <div className="board-columns">
+            {columns.map(({ title, tasks }) => (
+              <section className="board-column" key={title} aria-label={title}>
+                <h4>{title} <span>{tasks.length}</span></h4>
+                <ul>{tasks.map((task) => <li key={task}>{task}</li>)}</ul>
+              </section>
+            ))}
           </div>
-          <div className="board-main">
-            <div className="board-title">
-              <h3>Lanzamiento web</h3>
-              <p>{columns.reduce((total, column) => total + column.tasks.length, 0)} tareas</p>
-            </div>
-            <div className="board-columns">
-              {columns.map(({ title, tasks }) => (
-                <section className="board-column" key={title} aria-label={title}>
-                  <h4>{title} <span aria-hidden="true">{tasks.length}</span></h4>
-                  <ul>
-                    {tasks.map((task) => <li key={task}>{task}</li>)}
-                  </ul>
-                </section>
-              ))}
-            </div>
+          <div className="board-progress">
+            <span>{finished} de {total} tareas listas</span>
+            <progress value={finished} max={total} aria-label="Avance del proyecto" />
           </div>
         </div>
-      </figure>
-    </section>
+      </div>
+    </figure>
   );
 }

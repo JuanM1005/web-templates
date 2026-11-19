@@ -10,16 +10,15 @@ export function Home(favorites: FavoriteActions) {
     <>
       <section className="cover" aria-labelledby="cover-title">
         {cover.image && (
-          <figure className="cover-figure">
+          <div className="cover-figure">
             <img src={cover.image.src} alt={cover.image.alt} width={1536} height={1024} fetchPriority="high" />
-            <figcaption>En portada</figcaption>
-          </figure>
+          </div>
         )}
         <div className="cover-copy">
-          <CategoryLink article={cover} />
+          <div className="cover-desk"><span>En portada</span><CategoryLink article={cover} /></div>
           <h2 id="cover-title"><a href={articleLink(cover.slug)}>{cover.title}</a></h2>
           <p>{cover.summary}</p>
-          <ArticleMeta article={cover} />
+          <ArticleMeta article={cover} showDate />
           <div className="cover-actions">
             <a className="read-link" href={articleLink(cover.slug)} aria-label={`Leer artículo: ${cover.title}`}>Leer artículo</a>
             <SaveButton article={cover} {...favorites} />

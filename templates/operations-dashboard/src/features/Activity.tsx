@@ -54,11 +54,12 @@ export function Activity({ rows, compact = false }: { rows: Operation[]; compact
         <div className="table-scroll" tabIndex={0} role="region" aria-label="Tabla de actividades">
           <table>
             <caption className="sr-only">Actividades operativas del periodo seleccionado</caption>
-            <thead><tr>{["Registro", "Actividad", "Área", "Fecha", "Unidades", "Estado"].map((label) => <th scope="col" key={label}>{label}</th>)}</tr></thead>
+            <thead><tr>{["Actividad", "Estado", "Área", "Fecha", "Unidades"].map((label) => <th scope="col" key={label}>{label}</th>)}</tr></thead>
             <tbody>{matches.slice(start, start + size).map((row) => (
               <tr key={row.id}>
-                <th scope="row">{row.id}</th><td>{row.task}</td><td>{row.area}</td><td><time dateTime={row.date}>{formatDay(row.date)}</time></td>
-                <td>{row.units}</td><td><span className="status" data-status={row.status}>{row.status}</span></td>
+                <th scope="row">{row.task}<small>{row.id}</small></th>
+                <td><span className="status" data-status={row.status}>{row.status}</span></td>
+                <td>{row.area}</td><td><time dateTime={row.date}>{formatDay(row.date)}</time></td><td>{row.units}</td>
               </tr>
             ))}</tbody>
           </table>
