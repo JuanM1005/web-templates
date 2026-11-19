@@ -1,7 +1,5 @@
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { categories, process, products, services, type Product } from "./data";
-
-const Arrow = () => <span aria-hidden="true">↗</span>;
 
 function ProductVisual({ type }: { type: Product["visual"] }) {
   return (
@@ -21,6 +19,17 @@ export function App() {
   const [selected, setSelected] = useState<Product | null>(null);
   const [quoteItems, setQuoteItems] = useState<string[]>([]);
   const [sent, setSent] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!selected) return;
+    closeButtonRef.current?.focus();
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelected(null);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [selected]);
 
   const filteredProducts = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -69,7 +78,7 @@ export function App() {
             <h1>Decisiones técnicas que <em>mueven</em> la operación.</h1>
             <p className="hero-lead">Una base editorial para presentar equipos industriales, orientar una selección y convertir necesidades complejas en solicitudes claras.</p>
             <div className="hero-actions">
-              <a className="button button--lime" href="#catalogo">Explorar equipos <Arrow /></a>
+              <a className="button button--lime" href="#catalogo">Explorar equipos</a>
               <a className="button button--ghost" href="#servicios">Conocer capacidades</a>
             </div>
           </div>
@@ -118,8 +127,8 @@ export function App() {
         <section className="services section" id="servicios">
           <div className="section-kicker"><span>SERVICIOS COMPLEMENTARIOS</span><small>DEL EQUIPO A LA OPERACIÓN</small></div>
           <div className="services-layout">
-            <div className="services-intro"><h2>Una solución no termina en la entrega.</h2><p>La plantilla conecta catálogo y servicio para que el visitante entienda el acompañamiento disponible antes, durante y después de una compra.</p><a href="#contacto">Plantear un requerimiento <Arrow /></a></div>
-            <div className="service-list">{services.map((service) => <article key={service.code}><span>{service.code}</span><div><h3>{service.title}</h3><p>{service.text}</p></div><i aria-hidden="true">↗</i></article>)}</div>
+            <div className="services-intro"><h2>Una solución no termina en la entrega.</h2><p>La plantilla conecta catálogo y servicio para que el visitante entienda el acompañamiento disponible antes, durante y después de una compra.</p><a href="#contacto">Plantear un requerimiento</a></div>
+            <div className="service-list">{services.map((service) => <article key={service.code}><span>{service.code}</span><div><h3>{service.title}</h3><p>{service.text}</p></div></article>)}</div>
           </div>
         </section>
 
@@ -136,7 +145,7 @@ export function App() {
             <div className="form-grid"><label>Nombre o empresa<input required placeholder="Ej. Taller del Centro" /></label><label>Correo de contacto<input required type="email" placeholder="nombre@empresa.com" /></label></div>
             <label>Tipo de necesidad<select defaultValue=""><option value="" disabled>Seleccione una opción</option><option>Selección de equipo</option><option>Mantenimiento o diagnóstico</option><option>Integración de sistema</option><option>Adecuación de infraestructura</option></select></label>
             <label>¿Qué necesita resolver?<textarea required rows={5} placeholder="Comparta el objetivo, condiciones conocidas y restricciones principales." /></label>
-            <div className="form-footer"><p>Este formulario no envía ni almacena información.</p><button className="button button--lime" type="submit">Simular solicitud <Arrow /></button></div>
+            <div className="form-footer"><p>Este formulario no envía ni almacena información.</p><button className="button button--lime" type="submit">Simular solicitud</button></div>
             {sent && <p className="form-success" role="status">Simulación completada. No se transmitieron datos.</p>}
           </form>
         </section>
@@ -146,7 +155,7 @@ export function App() {
 
       {selected && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.currentTarget === event.target) setSelected(null); }}>
         <section className="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-          <button className="modal-close" type="button" onClick={() => setSelected(null)} aria-label="Cerrar ficha">×</button>
+          <button ref={closeButtonRef} className="modal-close" type="button" onClick={() => setSelected(null)} aria-label="Cerrar ficha">×</button>
           <ProductVisual type={selected.visual} /><p className="eyebrow">{selected.family} · {selected.id}</p><h2 id="modal-title">{selected.name}</h2><p>{selected.summary}</p><h3>Aplicación de referencia</h3><p>{selected.application}</p><dl>{selected.specs.map(([term, value]) => <div key={term}><dt>{term}</dt><dd>{value}</dd></div>)}</dl><small className="modal-note">Especificaciones demostrativas; deben validarse para cada proyecto.</small><button className="button button--dark" type="button" onClick={() => toggleQuote(selected.id)}>{quoteItems.includes(selected.id) ? "Quitar de cotización" : "Agregar a cotización"}</button>
         </section>
       </div>}
