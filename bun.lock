@@ -50,6 +50,21 @@
         "typescript": "7.0.2",
       },
     },
+    "templates/ecommerce": {
+      "name": "@web-templates/ecommerce",
+      "version": "0.1.0",
+      "dependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+      },
+      "devDependencies": {
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "bun-plugin-tailwind": "^0.1.0",
+        "tailwindcss": "^4.0.0",
+        "typescript": "^5.7.0",
+      },
+    },
     "templates/ecommerce/v2": {
       "name": "@web-templates/ecommerce-v2",
       "version": "0.1.0",
@@ -67,6 +82,21 @@
     },
     "templates/education": {
       "name": "@web-templates/education",
+      "version": "0.1.0",
+      "dependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+      },
+      "devDependencies": {
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "bun-plugin-tailwind": "^0.1.0",
+        "tailwindcss": "^4.0.0",
+        "typescript": "^5.7.0",
+      },
+    },
+    "templates/events": {
+      "name": "@web-templates/events",
       "version": "0.1.0",
       "dependencies": {
         "react": "^19.0.0",
@@ -112,6 +142,21 @@
     },
     "templates/health-portal": {
       "name": "@web-templates/health-portal",
+      "version": "0.1.0",
+      "dependencies": {
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+      },
+      "devDependencies": {
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "bun-plugin-tailwind": "^0.1.0",
+        "tailwindcss": "^4.0.0",
+        "typescript": "^5.7.0",
+      },
+    },
+    "templates/industrial": {
+      "name": "@web-templates/industrial",
       "version": "0.1.0",
       "dependencies": {
         "react": "^19.0.0",
@@ -568,15 +613,21 @@
 
     "@web-templates/digital-magazine": ["@web-templates/digital-magazine@workspace:templates/digital-magazine"],
 
+    "@web-templates/ecommerce": ["@web-templates/ecommerce@workspace:templates/ecommerce"],
+
     "@web-templates/ecommerce-v2": ["@web-templates/ecommerce-v2@workspace:templates/ecommerce/v2"],
 
     "@web-templates/education": ["@web-templates/education@workspace:templates/education"],
+
+    "@web-templates/events": ["@web-templates/events@workspace:templates/events"],
 
     "@web-templates/events-v2": ["@web-templates/events-v2@workspace:templates/events/v2"],
 
     "@web-templates/gallery": ["@web-templates/gallery@workspace:templates/gallery"],
 
     "@web-templates/health-portal": ["@web-templates/health-portal@workspace:templates/health-portal"],
+
+    "@web-templates/industrial": ["@web-templates/industrial@workspace:templates/industrial"],
 
     "@web-templates/industrial-supplier": ["@web-templates/industrial-supplier@workspace:templates/industrial-supplier"],
 
