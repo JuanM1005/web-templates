@@ -268,3 +268,58 @@ button { color: inherit; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Responsive and readability refinement */
+body { overflow-x: hidden; font-size: 1rem; line-height: 1.55; }
+.public-nav, .button, .text-action, .link-button, .editorial-link, .news-grid a, .private-header > div a, .private-header > div button, .account-layout aside nav button, .admin-nav button { font-size: .875rem; }
+.brand small, .eyebrow, .section-index, .institution-note span, .function-list span, .academy__visual > span, .news-grid article > small, .public-footer > div > strong, .public-footer > small, .auth-form > small, .semantic-badge, .timeline small, .tray > button > span:first-child small, .tray > button > small, .detail-panel dt { font-size: .75rem; }
+.quick-access small, .function-list p, .affiliation li p, .news-grid p, .public-footer p, .public-footer a:not(.brand), .surface-panel > p, .empty-state p, .detail-panel dd { font-size: .875rem; }
+.public-nav a, .text-action, .link-button, .editorial-link, .news-grid a { min-height: 44px; display: inline-flex; align-items: center; }
+.field-control, .button, .menu-toggle, .account-layout aside nav button, .admin-nav button, .tray > button { min-height: 44px; }
+.quick-access > a, .news-grid article, .surface-panel, .tray-layout { min-width: 0; }
+
+@media (max-width: 900px) {
+  .public-hero { min-height: 620px; }
+  .about { grid-template-columns: 1fr 1fr; }
+  .section-index { grid-column: 1/-1; }
+  .institution-note { grid-column: 1/-1; }
+  .academy { gap: 3rem; }
+  .auth-layout { grid-template-columns: minmax(300px,.75fr) 1.25fr; }
+  .tray-layout { grid-template-columns: minmax(260px,.75fr) 1.25fr; }
+}
+
+@media (max-width: 640px) {
+  .demo-banner { font-size: .75rem; line-height: 1.35; }
+  .public-header { min-height: 68px; padding-inline: .875rem; }
+  .public-nav { top: 68px; max-height: calc(100vh - 68px); overflow-y: auto; }
+  .public-nav a { padding: .85rem 1rem; }
+  .public-hero { min-height: 600px; }
+  .public-hero h1 { font-size: clamp(2.75rem,13vw,4rem); }
+  .public-hero__copy > p:not(.eyebrow) { font-size: 1rem; }
+  .photo-placeholder > div { right: 1rem; left: 1rem; width: auto; }
+  .quick-access > a { min-height: auto; padding: 1.25rem 1rem; }
+  .about, .section-heading, .affiliation, .academy { gap: 2rem; }
+  .about h2, .section-heading h2, .affiliation h2, .academy h2, .closing h2 { font-size: clamp(2.25rem,11vw,3.25rem); }
+  .editorial-section { padding-block: 4.5rem; }
+  .news-placeholder { min-height: 170px; }
+  .auth-layout > aside { min-height: 300px; }
+  .auth-layout aside h1 { font-size: 2.5rem; }
+  .auth-layout > section { padding-inline: 1rem; }
+  .account-layout aside nav { scroll-snap-type: x mandatory; }
+  .account-layout aside nav button { scroll-snap-align: start; }
+  .admin-tools { position: sticky; z-index: 10; top: 68px; padding-block: .75rem; background: var(--background); }
+  .detail-panel__heading { align-items: flex-start; flex-direction: column; }
+  .dialog { padding: 1.25rem; }
+}
+
+@media (max-width: 390px) {
+  .header-actions .button { padding-inline: .8rem; }
+  .public-hero h1 { font-size: 2.65rem; }
+  .photo-placeholder > div { top: 1rem; }
+  .action-row .button { width: 100%; justify-content: center; }
+  .academy__letter { font-size: 8rem; }
+  .public-footer { padding-inline: 1rem; }
+  .admin-main, .account-content { padding-inline: .75rem; }
+  .tray > button { grid-template-columns: 1fr; }
+  .tray > button > small { grid-column: 1; }
+}
