@@ -1,83 +1,139 @@
 # Web Templates Library
 
-Repositorio de servicio social de Juan y Eriberto para construir una biblioteca de cuatro plantillas web independientes. Las implementaciones principales pueden convivir con propuestas alternativas dentro de subcarpetas versionadas como `v2`, evitando sobrescribir el trabajo de cada integrante.
+Repositorio de servicio social de Juan y Eriberto para construir, documentar y revisar una biblioteca de plantillas web independientes y reutilizables.
 
-## Objetivo
+## Estado actual (`develop`)
 
-Crear, documentar y revisar cuatro plantillas reutilizables: industrial/corporativa, comercio electrónico/catálogo, eventos/conferencias y portafolio profesional. La plantilla industrial será el piloto; las demás se desarrollarán después de revisarlo. El alcance y los criterios de entrega están en [PLANIFICACION.md](./PLANIFICACION.md), que sigue siendo un borrador con decisiones pendientes.
+El repositorio ha evolucionado más allá de las cuatro plantillas iniciales del MVP y actualmente cuenta con **15 plantillas funcionales** dentro del directorio `templates/`, además de variantes aisladas (`v2`) que permiten convivir propuestas alternativas sin sobrescribir las implementaciones base.
 
-## Tecnologías previstas
+Todas las plantillas cuentan con:
 
-- React para las interfaces.
-- TypeScript para el código de las plantillas.
-- Tailwind CSS v4 o la versión estable más reciente compatible para los estilos.
-- Bun para gestionar dependencias y workspaces; también para ejecución y compilación cuando se implemente cada plantilla.
-- Git y GitHub para colaboración y revisión.
+- Diseño responsivo adaptado a móvil, tableta y escritorio.
+- HTML semántico y controles accesibles para navegación por teclado.
+- Datos demostrativos aislados y avisos explícitos en funciones simuladas sin backend.
+- Configuración autónoma para desarrollo, verificación de tipos y compilación de producción.
 
-Las versiones concretas se verificarán en la documentación oficial y se registrarán antes de instalarlas. Por ahora no hay dependencias ni comandos de desarrollo o compilación.
+## Tecnologías utilizadas
 
-## Estructura
+- **React 19** para la construcción de interfaces.
+- **TypeScript** con modo estricto (`tsc --noEmit`) para seguridad de tipos.
+- **Tailwind CSS v4** para estilos y tokens visuales personalizables.
+- **Bun** como entorno de ejecución, gestor de dependencias y empaquetador.
+- **Git y GitHub** para control de versiones en ramas cortas y revisión cruzada.
+
+## Estructura del repositorio
 
 ```text
 web-templates/
 ├── templates/
-│   ├── industrial/
-│   │   └── v2/
-│   ├── ecommerce/
-│   │   └── v2/
-│   ├── events/
-│   │   └── v2/
-│   └── portfolio/
+│   ├── industrial/                  # Plantilla piloto industrial / corporativa
+│   │   └── v2/                      # Variante alternativa aislada
+│   ├── ecommerce/                   # Catálogo de productos y carrito simulado
+│   │   └── v2/                      # Variante alternativa aislada
+│   ├── events/                      # Conferencias, ponentes y agenda por día
+│   │   └── v2/                      # Variante alternativa aislada
+│   ├── portfolio/                   # Portafolio profesional y casos de estudio
+│   ├── saas-landing/                # Landing demostrativa para SaaS (Alinea)
+│   ├── real-estate/                 # Catálogo inmobiliario con filtros y comparador
+│   ├── operations-dashboard/        # Panel operativo con métricas y actividad
+│   ├── digital-magazine/            # Revista digital editorial con favoritos
+│   ├── professional-association/    # Portal institucional, autenticación y cuenta
+│   ├── industrial-supplier/         # Proveedor de equipamiento y servicios técnicos
+│   ├── bakery/                      # Panadería artesanal y escaparate móvil
+│   ├── pizzeria/                    # Pizzería con personalizador y carrito accesible
+│   ├── service-business/            # Negocio local de servicios y reservaciones
+│   ├── services-portal/             # Portal de servicios digitales
+│   ├── health-portal/               # Portal informativo y citas de salud
+│   ├── education/                   # Plataforma de cursos y catálogo educativo
+│   ├── community/                   # Comunidad social y publicaciones
+│   ├── gallery/                     # Galería visual y exhibición de obras
+│   └── music/                       # Plataforma musical y reproducción demostrativa
 ├── docs/
-│   ├── architecture.md
-│   ├── conventions.md
-│   └── roadmap.md
-├── .github/PULL_REQUEST_TEMPLATE.md
+│   ├── architecture.md              # Principios de arquitectura e independencia
+│   ├── conventions.md               # Convenciones de código, ramas y accesibilidad
+│   └── roadmap.md                   # Hoja de ruta y evolución del proyecto
+├── .github/
+│   └── PULL_REQUEST_TEMPLATE.md     # Plantilla estándar para revisiones
 ├── .gitignore
+├── bun.lock
 ├── package.json
 ├── PLANIFICACION.md
 └── README.md
 ```
 
-Las carpetas principales quedan disponibles para las versiones base revisadas por el equipo. Las propuestas alternativas industrial, e-commerce y eventos viven en sus respectivas carpetas `v2`, con código, instrucciones e identidad visual independientes.
+## Catálogo de plantillas
 
-## Vista previa rápida
+| Plantilla                    | Ruta                                 |  Variantes  | Descripción breve                                                                 |
+| :--------------------------- | :----------------------------------- | :---------: | :-------------------------------------------------------------------------------- |
+| **Industrial / Corporativa** | `templates/industrial`               | Base + `v2` | Sitio institucional de ingeniería, servicios, filtro de proyectos y cotizaciones. |
+| **E-commerce / Catálogo**    | `templates/ecommerce`                | Base + `v2` | Tienda con búsqueda, filtros por categoría, ficha técnica y bolsa simulada.       |
+| **Eventos / Conferencias**   | `templates/events`                   | Base + `v2` | Cumbre tecnológica con ponentes, agenda filtrable por día y registro de pases.    |
+| **Portafolio Profesional**   | `templates/portfolio`                |    Base     | Perfil profesional, proyectos filtrables, trayectoria y contacto simulado.        |
+| **SaaS Landing (Alinea)**    | `templates/saas-landing`             |    Base     | Página de producto SaaS con vista previa, planes de precios y contacto.           |
+| **Bienes Raíces**            | `templates/real-estate`              |    Base     | Catálogo de propiedades con filtros avanzados, detalle y comparador.              |
+| **Dashboard Operativo**      | `templates/operations-dashboard`     |    Base     | Tablero de monitoreo con métricas, registro de actividad y preferencias.          |
+| **Revista Digital**          | `templates/digital-magazine`         |    Base     | Publicación editorial con lectura de artículos y gestión de favoritos.            |
+| **Asociación Profesional**   | `templates/professional-association` |    Base     | Portal institucional con flujos de autenticación, perfil y administración.        |
+| **Proveedor Industrial**     | `templates/industrial-supplier`      |    Base     | Catálogo de maquinaria y servicios industriales con modal accesible.              |
+| **Panadería Artesanal**      | `templates/bakery`                   |    Base     | Escaparate de panadería con menú móvil, productos y ubicación.                    |
+| **Pizzería**                 | `templates/pizzeria`                 |    Base     | Menú interactivo con personalizador de pizzas y carrito accesible.                |
+| **Servicios Locales**        | `templates/service-business`         |    Base     | Sitio de servicios con agenda seleccionable y formulario de reservación.          |
+| **Portal de Servicios**      | `templates/services-portal`          |    Base     | Directorio y solicitud de servicios digitales.                                    |
+| **Portal de Salud**          | `templates/health-portal`            |    Base     | Portal médico informativo y gestión demostrativa de consultas.                    |
+| **Plataforma Educativa**     | `templates/education`                |    Base     | Catálogo de cursos, temarios y vista de aprendizaje.                              |
+| **Comunidad Social**         | `templates/community`                |    Base     | Espacio de interacción comunitaria, temas y publicaciones.                        |
+| **Galería Visual**           | `templates/gallery`                  |    Base     | Exhibición curada de piezas visuales y colecciones.                               |
+| **Plataforma Musical**       | `templates/music`                    |    Base     | Catálogo de lanzamientos, listas y reproductor demostrativo.                      |
 
-Desde la raíz `web-templates`, ejecuta:
+## Ejecución, verificación y compilación
+
+### Desde la raíz del repositorio
+
+Puedes iniciar el servidor de desarrollo, verificar tipos o compilar las variantes principales directamente desde la raíz `web-templates/`:
 
 ```bash
+# Vista previa en desarrollo (http://localhost:3000)
 bun run dev:industrial-v2
-```
-
-Después abre la dirección que aparece en la terminal, normalmente [http://localhost:3000](http://localhost:3000). El enlace solo funciona mientras el comando siga ejecutándose. Para detener el servidor usa `Ctrl + C`.
-
-También puedes comprobar y compilar la plantilla desde la raíz:
-
-```bash
-bun run check:industrial-v2
-bun run build:industrial-v2
-```
-
-Los comandos equivalentes para las demás plantillas son:
-
-```bash
 bun run dev:ecommerce-v2
 bun run dev:events-v2
 bun run dev:portfolio
 bun run dev:saas-landing
-```
 
-[Alinea](./templates/saas-landing/README.md) es una landing demostrativa para un SaaS de gestión de proyectos. Sus comandos de verificación y compilación son `bun run check:saas-landing` y `bun run build:saas-landing`.
+# Verificación de tipos y compilación individual
+bun run check:industrial-v2
+bun run build:industrial-v2
 
-Para revisar o compilar las cuatro de una vez:
-
-```bash
+# Verificación y compilación en lote
 bun run check:v2
 bun run build:v2
 ```
 
-## Organización del trabajo
+### Ejecución autónoma por plantilla
 
-La propuesta inicial asigna industrial y eventos a Juan, con revisión de Eriberto; e-commerce y portafolio a Eriberto, con revisión de Juan. El trabajo usará tareas pequeñas, ramas cortas y solicitudes de revisión cruzada. `main` es la única rama permanente prevista. Esta distribución es una propuesta del plan, no una aprobación formal.
+Cada carpeta dentro de `templates/` funciona de manera independiente. Para ejecutar cualquiera de las 15 plantillas:
 
-Consulta [arquitectura](./docs/architecture.md), [convenciones](./docs/conventions.md) y [hoja de ruta](./docs/roadmap.md) para conocer el avance y los siguientes pasos.
+```bash
+cd templates/<nombre-de-la-plantilla>
+bun install
+bun run dev
+```
+
+Para validar el tipado estricto y generar el empaquetado de producción en `dist/`:
+
+```bash
+bun run typecheck
+bun run build
+```
+
+## Organización y flujo de trabajo
+
+1. **Ramas de trabajo:** Todo cambio se desarrolla en ramas cortas (`feat/`, `fix/`, `docs/`, `chore/`) creadas a partir de `develop`.
+2. **Integración:** Los cambios se integran primero a `develop` mediante Pull Requests con verificación de tipos y compilación aprobadas. La rama `main` se reserva para consolidaciones estables revisadas por el equipo.
+3. **Revisión cruzada:** Las entregas de Juan son revisadas por Eriberto y viceversa, siguiendo los criterios definidos en `PLANIFICACION.md` y `.github/PULL_REQUEST_TEMPLATE.md`.
+
+## Documentación del proyecto
+
+- [`PLANIFICACION.md`](./PLANIFICACION.md) — Alcance, distribución inicial, criterios de aceptación y entregables.
+- [`docs/architecture.md`](./docs/architecture.md) — Principios de arquitectura y aislamiento entre plantillas.
+- [`docs/conventions.md`](./docs/conventions.md) — Estándares de código, estilos, accesibilidad y control de versiones.
+- [`docs/roadmap.md`](./docs/roadmap.md) — Hoja de ruta y siguientes etapas de evolución.
